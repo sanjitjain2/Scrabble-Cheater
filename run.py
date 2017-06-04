@@ -1,4 +1,7 @@
 from sys import argv
+import time
+
+start_time = time.clock()
 
 scores = {"A": 1, "C": 3, "B": 3, "E": 1, "D": 2, "G": 2,
           "F": 4, "I": 1, "H": 4, "K": 5, "J": 8, "M": 3,
@@ -18,8 +21,8 @@ if (rack.isalpha()) != True:                    #check whether rack is only alph
 	print "Enter Only Alphabets "
 	exit(1)
 
-rack = rack.upper()
-rack = ''.join(sorted(rack))                    #sorting the rackletters for better performance                             #change to uppercase
+rack = rack.upper()                             #changing into uppercase 
+rack = ''.join(sorted(rack))                    #sorting the rackletters for better performance
 
 wordlist = []                                   #list of all words from sowpods.txt
 
@@ -56,4 +59,6 @@ for entry in valid_words:                       # Print the valid words
     score = entry[0]
     word = entry[1]
     print(str(score) + " " + word)
+    
+print time.clock() - start_time, "seconds"
 
